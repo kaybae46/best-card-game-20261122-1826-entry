@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Pact — a duel of burning cards</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><span class="brand-flame" aria-hidden="true"></span>EMBER PACT</div>
+    <div id="turn-banner" class="turn-banner">Your turn</div>
+    <div class="top-actions">
+      <button id="mute-btn" class="chip-btn" type="button" aria-label="Toggle sound">Sound: On</button>
+      <button id="help-btn" class="chip-btn" type="button" aria-label="How to play">How to play</button>
+    </div>
+  </header>
+
+  <main id="table" aria-label="Ember Pact card table">
+    <section id="rival-side" class="side rival-side">
+      <div class="fighter rival-fighter">
+        <div class="portrait rival-portrait" aria-hidden="true"></div>
+        <div class="fighter-info">
+          <div class="fighter-name">Ashcaller Vex <span class="tag">RIVAL</span></div>
+          <div class="life-row">
+            <div class="life-bar"><div id="rival-life-fill" class="life-fill rival-fill"></div></div>
+            <div id="rival-life-text" class="life-text">30 / 30</div>
+            <div id="rival-block" class="block-badge" hidden>WARD 0</div>
+          </div>
+          <div id="rival-deck" class="deck-count">Deck 30 · Discard 0</div>
+        </div>
+        <div id="telegraph" class="telegraph" aria-live="polite"></div>
+      </div>
+      <div id="rival-hand" class="hand rival-hand" aria-label="Rival hand, face down"></div>
+    </section>
+
+    <section id="middle" class="middle">
+      <div id="played-zone" class="played-zone" aria-label="Cards played this turn"></div>
+      <div id="center-info" class="center-info">
+        <div id="round-label" class="round-label">Round 1</div>
+        <div id="pact-meter" class="pact-meter">Pact: —</div>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+
+    <section id="player-side" class="side player-side">
+      <div id="player-hand" class="hand player-hand" aria-label="Your hand"></div>
+      <div class="fighter player-fighter">
+        <div class="portrait player-portrait" aria-hidden="true"></div>
+        <div class="fighter-info">
+          <div class="fighter-name">You — Emberwarden <span class="tag you">YOU</span></div>
+          <div class="life-row">
+            <div class="life-bar"><div id="player-life-fill" class="life-fill player-fill"></div></div>
+            <div id="player-life-text" class="life-text">30 / 30</div>
+            <div id="player-block" class="block-badge" hidden>WARD 0</div>
+          </div>
+          <div class="energy-row">
+            <span class="energy-label">Ember</span>
+            <span id="energy-pips" class="energy-pips" aria-label="Energy"></span>
+            <span id="player-deck" class="deck-count">Deck 30 · Discard 0</span>
+          </div>
+        </div>
+        <button id="end-turn-btn" class="end-turn-btn" type="button">End turn <kbd>E</kbd></button>
+      </div>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay" hidden>
+    <div id="overlay-card" class="overlay-card"></div>
+  </div>
+
+  <div id="float-layer" class="float-layer" aria-hidden="true"></div>
+  <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
